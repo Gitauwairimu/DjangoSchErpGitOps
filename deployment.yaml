@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-erp  # Replace with your desired deployment name
+
+spec:
+  replicas: 1  # Number of pod replicas (you can adjust this)
+  selector:
+    matchLabels:
+      app: django-erp
+  template:
+    metadata:
+      labels:
+        app: django-erp
+    spec:
+      containers:
+      - name: django-erp
+        image: gitauwairimu/djangoscherp-dev:latest  # Replace with your actual image name and tag
+        ports:
+        - containerPort: 8000  # Replace with the port your Django application listens on
+        # Volume mounts (if your application requires persistent storage)
+        # - name: django-data  # Volume name
+        #   volumeMount:
+        #     mountPath: /var/www/django-erp/data  # Path within the container
+      # Volume definitions (if your application requires persistent storage)
+      # - name: django-data  # Volume name
+      #   persistentVolumeClaim:
+      #     claimName: django-erp-pvc  # Claim name referencing a PersistentVolumeClaim
+
+      # Resource requirements (optional)
+      # resources:
+      #   requests:
+      #     memory: "1Gi"
+      #     cpu: "1"
+      #   limits:
+      #     memory: "2Gi"
+      #     cpu: "2"
+
