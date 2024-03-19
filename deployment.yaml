@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: django-erp
-        image: gitauwairimu/djangoscherp-dev:8339905508
+        image: gitauwairimu/djangoscherp-dev:8340031806
         ports:
         - containerPort: 8000  # Replace with the port your Django application listens on
         # Volume mounts (if your application requires persistent storage)
